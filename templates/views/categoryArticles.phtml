@@ -1,0 +1,10 @@
+<h1><?= $category['name'] ?></h1>
+
+<?php foreach($articles as $a) : ?>
+  <article class="">
+    <h2><?= $a['title'] ?></h2>
+    <p><?= substr($a['corps'], 0, 100)?> [...]</p>
+  </article>
+<? endforeach ?>
+
+<button type="button" name="suivants" id="suivants" data-offset="0">D'autres articles</button>
