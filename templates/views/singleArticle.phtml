@@ -1,0 +1,42 @@
+<section id="article-main">
+  <header>
+    <h1><?= $article['title'] ?></h1>
+    <div class="">
+      <p>Ecrit par <?= $article['pseudo'] ?></p>
+      <p>Publié le<?= $article['date-publication'] ?></p>
+      <p>Dans la catégorie <?= $article['category'] ?></p>
+    </div>
+  </header>
+  <div class="">
+    <?= $article['corps'] ?>
+  </div>
+</section>
+
+<section id="comment-section">
+  <?php foreach($comments as $c) : ?>
+    <article class="">
+      <header class="comment-header">
+        <p><?=$c['pseudo'] ?></p>
+        <p><?=$c['date-publication'] ?></p>
+      </header>
+      <div class="comment-text">
+        <?= $c['corps'] ?>
+      </div>
+      <footer class="comment-footer">
+        <button type="button" name="like">+</button>
+        <button type="button" name="answer">Répondre</button>
+      </footer>
+    </article>
+  <?php endforeach ?>
+
+</section>
+
+<section id="add-comment">
+  <form class="" action="index.php?>" method="post">
+    <input type="hidden" name="action" value="addComment">
+    <input type="hidden" name="articleId" value="<?= $article['id'] ?>">
+    <input type="hidden" name="userId" value="<?= $_SESSION['user']['id'] ?>">
+    <textarea name="comment" rows="8" cols="80"></textarea>
+    <input type="submit" name="" value="Commenter">
+  </form>
+</section>
